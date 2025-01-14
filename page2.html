@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <title>Interactive Google Map</title>
+    <link rel="stylesheet" href="page2.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body id="body">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page2.html">Map</a></li>
+                <li><a href="page4.html">Alert</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 style="text-align: center;"  >Map Centered on Delhi</h1>
+
+    <!-- Map Container -->
+    <div id="map" style="size: 100%;"></div>
+
+    <!-- Include Leaflet.js CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Create a map object centered on Delhi
+        const map = L.map('map').setView([28.6139, 77.2090], 12); // Coordinates of Delhi and zoom level
+
+        // Set up OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker at Delhi's location
+        L.marker([28.6139, 77.2090]).addTo(map)
+            .bindPopup('Delhi')
+            .openPopup();
+    </script>
+
+
+    <script src="page2.js"></script>
+
+    
+    <footer id="last">
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="quick-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p>Empowering safety through technology.</p>
+    </footer>
+
+    
+</body>
+</html>
